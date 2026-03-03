@@ -22,7 +22,7 @@ import { UsersModule } from 'src/users/user.module';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy], // UsersService is now provided by UsersModule
+  providers: [AuthService, JwtStrategy], 
   exports: [AuthService],
-})
+}) 
 export class AuthModule {}
