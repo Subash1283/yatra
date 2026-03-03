@@ -2,16 +2,17 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+process.removeAllListeners('warning');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // ✅ Global Validation Pipe
+  
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true, // removes extra properties
-      forbidNonWhitelisted: true, // throws error if extra properties
-      transform: true, // auto transform payloads to DTO instances
+      whitelist: true, 
+      forbidNonWhitelisted: true, 
+      transform: true, 
     }),
   );
 
@@ -20,7 +21,7 @@ async function bootstrap() {
     .setTitle('My API')
     .setDescription('API documentation')
     .setVersion('1.0')
-    .addBearerAuth() // for JWT authentication
+    .addBearerAuth() 
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
