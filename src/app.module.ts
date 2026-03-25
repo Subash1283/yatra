@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/user.module';
+import { ResetPasswordModule } from './reset-password/resetpassword.module';
 
 
 @Module({
@@ -33,6 +34,7 @@ import { UsersModule } from './users/user.module';
     // USER MODULE
    UsersModule,
     AuthModule,
+    ResetPasswordModule
    
   
   ],
