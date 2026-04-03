@@ -21,15 +21,15 @@ import { ResetPasswordModule } from './reset-password/resetpassword.module';
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
         type: 'postgres',
-        host: config.getOrThrow('DB_HOST'),
-        port: Number(config.getOrThrow('DB_PORT')),
-        username: config.getOrThrow('DB_USERNAME'),
-        password: config.getOrThrow('DB_PASSWORD'),
-        database: config.getOrThrow('DB_NAME'),
-
+        host: config.get<string>('DB_HOST'),
+        port:  Number(config.get<string>('DB_PORT')),
+        username: config.get<string>('DB_USER'),
+        password: config.get<string>('DB_PASSWORD'),
+        database: config.get<string>('DB_NAME'),
         autoLoadEntities: true,
-        synchronize: true, // ❌ false in production
-      }),
+        synchronize: true, // ❗ true only for development
+
+      })
     }),
     // USER MODULE
    UsersModule,
