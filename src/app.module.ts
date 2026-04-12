@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/user.module';
 import { ResetPasswordModule } from './reset-password/resetpassword.module';
+import { PlaceModule } from './places/places.module';
 
 
 @Module({
@@ -34,7 +35,8 @@ import { ResetPasswordModule } from './reset-password/resetpassword.module';
     // USER MODULE
    UsersModule,
     AuthModule,
-    ResetPasswordModule
+    ResetPasswordModule,
+    PlaceModule
    
   
   ],
